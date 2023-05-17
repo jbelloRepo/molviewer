@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  cis2750a4master:
+    image: cis2750a4master
+    build:
+      context: .
+      dockerfile: ./Dockerfile

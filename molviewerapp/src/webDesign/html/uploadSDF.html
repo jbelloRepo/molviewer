@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/icon.png" sizes="16x16">
+    <title>MolViewer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/logo.png" alt="molecule Viewer image" style="display:inline-block;vertical-align:middle;">
+                <p
+                    style="display:inline-block; position: absolute; bottom: 0; right: 10; margin-bottom: 0;font-size: 34px;">
+                    <span> <strong>Mol</strong></span>Viewer</p>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"></div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary active" href="uploadSDF.html">Upload SDF File</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary active" href="modele.html">Modify Elements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary active" href="molist.html">Molecule List</a>
+                </li>
+               
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <style>
+        .navbar-brand {
+            font-family: 'Sacramento', cursive;
+        }
+
+        .nav-link {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">File Upload</h1>
+        <hr style="border-top: 3px solid #333; margin-top: 20px; margin-bottom: 20px;">
+        <form action="molecule" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+            <div class="mb-3" id="step1">
+                <label for="sdf_file" class="form-label">Step 1: Select an SDF file</label>
+                <input type="file" class="form-control-file" id="sdf_file" name="filename" accept=".sdf,application/sdf"
+                    required>
+                <div class="invalid-feedback"> html Please upload a file with an .sdf extension.</div>
+            </div>
+            <div class="mb-3">
+                <label for="mol_name" class="form-label">Step 2: Name the molecule</label>
+                <input type="text" class="form-control" id="mol_name" name="molname" style="width: 200px; height: 30px;"
+                    pattern="^[a-zA-Z0-9_]*$" required disabled>
+                <div class="invalid-feedback">Please enter a valid molecule name without spaces or special characters.
+                </div>
+            </div>
+            <p>Step 3: Press the Upload button to save the file</p>
+            <button type="submit" id="submit-btn" class="btn btn-outline-primary" style="margin-bottom: 20px;" disabled>Upload</button>
+            <div class="upload-feedback"></div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="index.js" charset="UTF-8"></script>
+
+
+
+    <!-- <script>
+        const fileInput = document.getElementById('sdf_file'); // sdf file
+        const form = document.querySelector('form');
+        const invalidFeedback = document.querySelector('#sdf_file ~ .invalid-feedback'); //feedback
+        const uploadBtn = document.querySelector('button[type="submit"]'); //upload button
+        const molNameInput = document.getElementById('mol_name'); // molecule name input
+
+
+        // disable upload button initially
+        uploadBtn.disabled = true;
+        molNameInput.disabled = true;
+
+        // add listener to input
+        fileInput.addEventListener('change', function (event) {
+            const selectedFile = event.target.files[0];
+            const fileType = selectedFile.type;
+            const fileName = selectedFile.name;
+
+            // alert(fileName);
+
+            //check for sdf
+            if (!fileName.endsWith('.sdf')) {
+                // Show invalid feedback message
+                invalidFeedback.textContent = 'Please upload a file with an .sdf extension.';
+                form.classList.add('was-validated');
+                fileInput.setCustomValidity('invalid');
+                uploadBtn.disabled = true; // disable upload button
+                molNameInput.disabled = true; // disable molecule name input
+            } else {
+                // Clear invalid feedback message
+                invalidFeedback.textContent = '';
+                form.classList.remove('was-validated');
+                fileInput.setCustomValidity('');
+                uploadBtn.disabled = true; // enable upload button
+                molNameInput.disabled = false; // enable molecule name input
+            }
+        });
+
+        // add listener to molecule name input
+        molNameInput.addEventListener('input', function (event) {
+            const invalidCharsRegex = /[\s~`!@#$%^&*()-_=+[\]{}\\|;:'",.<>/?]/g;
+            if (invalidCharsRegex.test(molNameInput.value)) {
+                molNameInput.setCustomValidity(
+                    'Please enter a valid molecule name without spaces or special characters.');
+                submitBtn.disabled = true; // disable submit button
+            } else {
+                molNameInput.setCustomValidity('');
+                if (!uploadBtn.disabled) {
+                    submitBtn.disabled = false; // enable submit button
+                }
+            }
+        });
+    </script> -->
+
+</body>
+
+</html>

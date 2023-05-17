@@ -1,0 +1,36 @@
+.nav-link {
+    margin-right: 10px;
+}
+
+/* .custom-bg {
+    background-color: #f3eff9;
+} */
+
+.nav-link.btn-primary.active:hover {
+    background-color: #007bff;
+}
+
+/* .navbar-brand {
+    font-family: 'Sacramento', cursive;
+} */
+
+/* .navbar-nav .nav-link {
+    font-family: 'Aleo', serif;
+    font-weight: 700;
+} */
+
+h1 {
+    font-family: 'Secular One', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+#svg-container {
+    height: 400px; /* Update with desired height */
+    width: 100%; /* Update with desired width */
+    overflow: auto; /* Add overflow property to handle scrolling if needed */
+  }
+
+  .form-control {
+    max-width: 40%;
+}

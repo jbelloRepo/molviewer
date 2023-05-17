@@ -1,0 +1,50 @@
+## Introduction
+Molview is a powerful application for visualizing molecular structures. This README provides an overview of the Molview app, including installation instructions, usage guidelines, and contribution details.
+
+## Installation
+To install and run the Molview app, follow these steps:
+
+1. **Docker Installation**: 
+   - Install Docker by following the instructions specific to your operating system. You can find the installation guide [here](https://docs.docker.com/get-docker/).
+
+2. **Clone the Repository**: 
+   - Clone the Molview repository to your local machine using the following command:
+     ```
+     git clone https://github.com/your-username/molview.git
+     ```
+
+3. **Compile the C Program**:
+   - Navigate to the project directory:
+     ```
+     cd molview
+     ```
+   - Run the makefile to compile the C program:
+     ```
+     make
+     ```
+
+4. **Start the App**:
+   - Start the Molview app by running the following command:
+     ```
+     ./molview
+     ```
+
+5. **Access the App**:
+   - Open your web browser and visit `http://localhost:5000` to access the Molview app.
+
+## Usage
+- Use the Molview app to upload molecular structure files (e.g., PDB, XYZ) and visualize them in 3D.
+- Explore different visualization options, adjust settings, and interact with the molecular models.
+- Export images or videos of your visualizations for further analysis or presentations.
+
+## Contributing
+Contributions to the Molview app are welcome! If you have any ideas, bug reports, or feature requests, please open an issue or submit a pull request. We appreciate your contribution to making Molview even better.
+
+## License
+The Molview app is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Acknowledgements
+We would like to acknowledge the following resources and libraries that have contributed to the development of the Molview app:
+- [Docker](https://www.docker.com/) - Containerization platform for easy app deployment.
+- [Open Babel](https://openbabel.org/) - Chemical toolbox designed to speak the many languages of chemical data.
+
