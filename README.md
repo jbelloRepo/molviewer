@@ -6,14 +6,15 @@
 
 
 ## Table of Contents
+## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
-  - [Clone the Repository](#clone-the-repository)
-  - [Docker Installation](#docker-installation)
-  - [Containerize the Application](#Containerize-the-application)
-  - [Compile the C Program](#compile-the-c-program)
-  - [Start the App](#start-the-app)
-  - [Access the App](#access-the-app)
+  1. [Clone the Repository](#clone-the-repository)
+  2. [Docker Installation](#docker-installation)
+  3. [Containerize the Application](#containerize-the-application)
+  4. [Compile the C Program](#compile-the-c-program)
+  5. [Start the App](#start-the-app)
+  6. [Access the App](#access-the-app)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
