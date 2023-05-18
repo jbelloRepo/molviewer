@@ -30,5 +30,5 @@ ENTRYPOINT []
 
 # LABEL Name=srcmolviewer Version=0.0.1
 
-    # docker build . -t molviewerapp:fullstack
-    # docker run --rm --name molviewer-container -p 8000:8000 -v $PWD/molviewerapp:/src_molviewer -it molviewerapp:fullstack
+        # docker build . -t molviewerapp:fullstack
+        # docker run --rm --name molviewer-container -p 8000:8000 -v $PWD/molviewerapp:/src_molviewer -it molviewerapp:fullstack
