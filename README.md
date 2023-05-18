@@ -36,6 +36,10 @@ To install and run the Molview app, follow these steps:
 - Install Docker by following the instructions specific to your operating system. You can find the installation guide [here](https://docs.docker.com/get-docker/).
 
 3. **Containerize the Application**:
+- Change directory to the app directory. Replace `/path/to/app` with the path to git repository directory.
+    ```
+     cd /path/to/app
+    ```
 
 
 ### Docker Installation
