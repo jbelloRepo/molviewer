@@ -36,17 +36,17 @@ To install and run the Molview app, follow these steps:
 - Install Docker by following the instructions specific to your operating system. You can find the installation guide [here](https://docs.docker.com/get-docker/).
 
 3. **Containerize the Application**:
-- Change directory to the app directory. Replace `/path/to/app` with the path to git repository directory. <br> <br>
+- Change directory to the app directory  <br> <br>
     ```
      cd molviewer 
     ```
-- Build the container image <br> <br>
+- Build the container image `docker build` <br> <br> <br> <br>
     ```
-     docker build . -t fullstack/molviewerapp 
+     docker build . -t molviewerapp:fullstack
     ```
 - Start the container using the `docker run` <br> <br>
     ```
-     docker run -p 8000:8000 -v $PWD/molviewerapp:/molviewerapp -it fullstack/molviewerapp 
+     docker run --rm --name molviewer-container -p 8000:8000 -v $PWD/molviewerapp:/src_molviewer -it molviewerapp:fullstack
     ```
 
 
