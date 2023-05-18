@@ -40,7 +40,7 @@ To install and run the Molview app, follow these steps:
     ```
      cd molviewer 
     ```
-- Build the container image `docker build` <br> <br> <br> <br>
+- Build the container image `docker build` <br> <br>
     ```
      docker build . -t molviewerapp:fullstack
     ```
